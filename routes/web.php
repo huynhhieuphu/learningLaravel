@@ -131,7 +131,7 @@ Route::fallback(function(){
 // Bước 1: tạo middlewware bằng artisan
 //         - Định nghĩa bộ lọc cho middleware mới tạo
 // Bước 2: Đăng ký middleware
-// Bước 3: Gán middleware cho route hoặc trong class controller
+// Bước 3: Gán middleware cho route hoặc trong controller
 
 // ===== demo làm việc middleware cơ bản
 Route::get('check-age/{age}', function($age){
@@ -168,3 +168,22 @@ Route::get('order-detail', function(){
 Route::get('not-access', function(){
     return "<i>Không có quyền truy cập</i>";
 })->name('notAccess');
+
+// ======================== 3. Controller =======================================
+// 1. Tạo controller
+// 2. Đăng ký route cho controller
+
+Route::get('first-controller', 'FirstController@index');
+//hoặc
+use App\Http\Controllers\FirstController;
+Route::get('first-demo', [FirstController::class,'demo']);
+
+// === sử dụng middlware trong controller
+Route::get('first-foo', 'FirstController@foo');
+Route::get('first-bar', 'FirstController@bar');
+
+// === truyền tham số vào trong controller
+Route::get('get-data/{id}', 'FirstController@getData');
+
+// === gọi view trong controller
+Route::get('show-login', 'FirstController@showLogin');
