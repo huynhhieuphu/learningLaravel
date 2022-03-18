@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use voku\helper\AntiXSS; // import thư viện AntiXSS
 
 // Một controller luôn luôn kế thừa từ class controller Laravel
 class FirstController extends Controller
 {
+    protected $antiXss;
 
     public function __construct()
     {
-        // Sử dụng middleware trong phương thức __construct()
+        // tạo 1 đối tượng AntiXSS;
+        $this->antiXss = new AntiXSS();
 
+        // Sử dụng middleware trong phương thức __construct()
         // Dùng middleware lên tất cả phương thức trong controller
         // $this->middleware('check.role:user');
 
@@ -62,5 +66,23 @@ class FirstController extends Controller
         // Response trả về 1 view
         // nạp vào view - load form login
         return view('login.login_view'); // tương đương đường dẫn login/login_view
+    }
+
+    public function handleLogin(Request $request)
+    {
+        // dd($request->all());
+        // dd() => phương thức fix lỗi tương tự var_dump(), die()
+        // $request->all() => lấy ra tất cả request gửi lên
+        
+        // Dùng hàm xss_clean() để loại bỏ xss
+        // Dùng hàm strip_tags() để xoá bỏ các HTML entities
+        $user = $this->antiXss->xss_clean($request->username);
+        $pass = strip_tags($request->password);
+
+        if($user === 'admin' && $pass === '1234567890') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return redirect()->route('show.login', ['message' => 'fail']);
     }
 }

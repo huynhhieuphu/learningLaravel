@@ -12,7 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/api/*', // cho phép uri đằng sau api
-        '*/*' // cho phép tất cả uri hoặc
+        // '/api/*', // cho phép uri đằng sau api
+        // '*/*' // cho phép tất cả uri hoặc
     ];
 }

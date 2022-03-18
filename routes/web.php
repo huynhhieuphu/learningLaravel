@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// ======================== 1. Routing =======================================
+// ======================== 1. Routing ========================
 // ===== Đăng ký cơ bản của 1 routing bao gồm phương thức HTTP request, tham số request, tham số response
 Route::get('/hello-world', function(){
     return 'Hello World!!!';
@@ -105,29 +105,29 @@ Route::get('/profile-detail/{id}', function($id){
 //     return 'admin - products';
 // })->name('admin.products');
 
-Route::group([
-    'prefix' => 'admin', // tiền tố của đường dẫn URL
-    'as' => 'admin.' // tiền tố của name route
-], function () {
-    Route::get('slides', function ($id) {
-        return 'admin - slides';
-    })->name('slides');
+// Route::group([
+//     'prefix' => 'admin', // tiền tố của đường dẫn URL
+//     'as' => 'admin.' // tiền tố của name route
+// ], function () {
+//     Route::get('slides', function ($id) {
+//         return 'admin - slides';
+//     })->name('slides');
 
-    Route::get('categories', function ($id) {
-        return 'admin - categories';
-    })->name('categories');
+//     Route::get('categories', function ($id) {
+//         return 'admin - categories';
+//     })->name('categories');
 
-    Route::get('products', function ($id) {
-        return 'admin - products';
-    })->name('products');
-});
+//     Route::get('products', function ($id) {
+//         return 'admin - products';
+//     })->name('products');
+// });
 
 // ===== Route::fallback => thiết lặp route nếu không tồn tại trang
 Route::fallback(function(){
     return 'không tìm thấy trang yêu cầu';
 });
 
-// ======================== 2. Middleware =======================================
+// ======================== 2. Middleware ========================
 // Bước 1: tạo middlewware bằng artisan
 //         - Định nghĩa bộ lọc cho middleware mới tạo
 // Bước 2: Đăng ký middleware
@@ -169,7 +169,7 @@ Route::get('not-access', function(){
     return "<i>Không có quyền truy cập</i>";
 })->name('notAccess');
 
-// ======================== 3. Controller =======================================
+// ======================== 3. Controller ========================
 // 1. Tạo controller
 // 2. Đăng ký route cho controller
 
@@ -186,4 +186,20 @@ Route::get('first-bar', 'FirstController@bar');
 Route::get('get-data/{id}', 'FirstController@getData');
 
 // === gọi view trong controller
-Route::get('show-login', 'FirstController@showLogin');
+Route::get('show-login', 'FirstController@showLogin')->name('show.login');
+
+// ======================== 4. Request ========================
+
+// ======================== 5. Response ========================
+
+// ======================== 6. Blade Templates ========================
+Route::post('handle-login', 'FirstController@handleLogin')->name('handle.login');
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'namespace' => 'Admin'
+], function(){
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('slide', 'SlideController@index')->name('slide');
+});
