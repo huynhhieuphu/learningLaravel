@@ -203,3 +203,18 @@ Route::group([
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::get('slide', 'SlideController@index')->name('slide');
 });
+
+// ======================== 6. Migrations ========================
+// 1. tạo migrate --create
+// 2. định nghĩa migrate
+// 3. chạy migrate
+
+// === Chỉnh sửa các cột
+// 1. Chạy lệnh CLI: composer require doctrine/dbal
+// 2. tạo migrate --table
+// 3. định nghĩa migrate
+// 4. chạy migrate
+
+// ======================== 7. Seeder ========================
+
+
