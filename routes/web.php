@@ -206,15 +206,17 @@ Route::group([
 
 // ======================== 6. Migrations ========================
 // 1. tạo migrate --create
-// 2. định nghĩa migrate
+// 2. Định nghĩa migrate
 // 3. chạy migrate
 
-// === Chỉnh sửa các cột
+// === Điều chỉnh sửa các cột trong bảng
 // 1. Chạy lệnh CLI: composer require doctrine/dbal
-// 2. tạo migrate --table
-// 3. định nghĩa migrate
+// 2. Tạo migrate --table
+// 3. Định nghĩa migrate
 // 4. chạy migrate
 
 // ======================== 7. Seeder ========================
-
+// 1. Tạo seeder
+// 2. Insert dữ liệu trong seeder
+// 3. Chạy seeder
 

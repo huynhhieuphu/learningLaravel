@@ -17,7 +17,7 @@ class CreateSizesTable extends Migration
             $table->increments('id');
             $table->tinyInteger('number');
             $table->string('text', 10);
-            $table->text('description')->nullable();
+            $table->text('descriptions')->nullable();
             $table->boolean('status')->default(1);
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();
