@@ -220,3 +220,20 @@ Route::group([
 // 2. Insert dữ liệu trong seeder
 // 3. Chạy seeder
 
+// ======================== 8. Query buider ========================
+Route::group([
+    'prefix' => 'query-buider',
+    'namespace' => 'Query'
+], function(){
+    Route::get('get-data', 'QueryBuiderController@getData');
+    Route::get('query-select', 'QueryBuiderController@querySelect');
+    Route::get('query-agg', 'QueryBuiderController@queryAgg');
+    Route::get('query-where', 'QueryBuiderController@queryWhere');
+    Route::get('query-search', 'QueryBuiderController@querySearch');
+    Route::get('query-join', 'QueryBuiderController@queryJoin');
+    Route::get('query-limit-data', 'QueryBuiderController@queryLimitData');
+    Route::get('query-insert', 'QueryBuiderController@queryInsert');
+    Route::get('query-update', 'QueryBuiderController@queryUpdate');
+    Route::get('query-delete', 'QueryBuiderController@queryDelete'); 
+});
+
