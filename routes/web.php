@@ -220,20 +220,29 @@ Route::group([
 // 2. Insert dữ liệu trong seeder
 // 3. Chạy seeder
 
-// ======================== 8. Query buider ========================
+// ======================== 8. Query builder ========================
 Route::group([
-    'prefix' => 'query-buider',
+    'prefix' => 'query-builder',
+    'as' => 'query.builder.',
     'namespace' => 'Query'
 ], function(){
-    Route::get('get-data', 'QueryBuiderController@getData');
-    Route::get('query-select', 'QueryBuiderController@querySelect');
-    Route::get('query-agg', 'QueryBuiderController@queryAgg');
-    Route::get('query-where', 'QueryBuiderController@queryWhere');
-    Route::get('query-search', 'QueryBuiderController@querySearch');
-    Route::get('query-join', 'QueryBuiderController@queryJoin');
-    Route::get('query-limit-data', 'QueryBuiderController@queryLimitData');
-    Route::get('query-insert', 'QueryBuiderController@queryInsert');
-    Route::get('query-update', 'QueryBuiderController@queryUpdate');
-    Route::get('query-delete', 'QueryBuiderController@queryDelete'); 
+    Route::get('get-data', 'QueryBuilderController@getData');
+    Route::get('query-select', 'QueryBuilderController@querySelect');
+    Route::get('query-agg', 'QueryBuilderController@queryAgg');
+    Route::get('query-where', 'QueryBuilderController@queryWhere');
+    Route::get('query-search', 'QueryBuilderController@querySearch');
+    Route::get('query-join', 'QueryBuilderController@queryJoin');
+    Route::get('query-limit-data', 'QueryBuilderController@queryLimitData');
+    Route::get('query-insert', 'QueryBuilderController@queryInsert');
+    Route::get('query-update', 'QueryBuilderController@queryUpdate');
+    Route::get('query-delete', 'QueryBuilderController@queryDelete'); 
 });
 
+// ======================== 9. Query buider ========================
+Route::group([
+    'prefix' => 'eloquent-orm',
+    'as' => 'eloquent.orm.',
+    'namespace' => 'eloquent'
+], function(){
+    
+});
