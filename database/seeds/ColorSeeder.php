@@ -11,10 +11,10 @@ class ColorSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 8; $i++){
+        for($i = 0; $i < 5; $i++){
             DB::table('colors')->insert([
                 'name' => 'color name ' . $i,
-                'slug' => 'slug-name-' . $i,
+                'slug' => 'color-name-' . $i,
                 'code' => null,
                 'status' => 1,
                 'created_at' => date('Y-m-d H:i:s'),

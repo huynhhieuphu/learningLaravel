@@ -238,11 +238,17 @@ Route::group([
     Route::get('query-delete', 'QueryBuilderController@queryDelete'); 
 });
 
-// ======================== 9. Query buider ========================
+// ======================== 9. Eloquent ORM ========================
+// 1. Tạo model
+// 2. Định nghĩa model + tạo mối quan hệ giữa các model
+
 Route::group([
     'prefix' => 'eloquent-orm',
     'as' => 'eloquent.orm.',
-    'namespace' => 'eloquent'
+    'namespace' => 'Eloquent'
 ], function(){
-    
+    Route::get('get-data', 'OrmController@getData')->name('get.data');
+    Route::get('insert-data', 'OrmController@insertData')->name('insert.data');
+    Route::get('update-data', 'OrmController@updateData')->name('update.data');
+    Route::get('delete-data', 'OrmController@deleteData')->name('delete.data');
 });

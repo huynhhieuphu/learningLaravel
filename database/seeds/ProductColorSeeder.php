@@ -12,10 +12,10 @@ class ProductColorSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i < 4; $i++){
+        for($i = 1; $i < 10; $i++){
             DB::table('product_color')->insert([
-                'product_id' => $i,
-                'color_id' => $i,
+                'product_id' => rand(1, 10),
+                'color_id' => rand(1, 4),
             ]);
         }
         

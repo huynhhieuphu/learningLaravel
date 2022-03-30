@@ -11,11 +11,11 @@ class SizeSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 30; $i < 45; $i++){
+        for($i = 7; $i <= 11; $i++){
             DB::table('sizes')->insert([
                 'number' => $i,
-                'text' => 'text ' . $i,
-                'descriptions' => null,
+                'text' => 'size ' . $i,
+                'descriptions' => 'US',
                 'status' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => null

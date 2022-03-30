@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,9 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // BrandSeeder::class,
-            // ColorSeeder::class,
-            // SizeSeeder::class
+            CategorySeeder::class,
+            BrandSeeder::class,
+            ColorSeeder::class,
+            SizeSeeder::class,
+            ProductSeeder::class,
+            ProductColorSeeder::class,
+            ProductSizeSeeder::class
         ]);
     }
 }
